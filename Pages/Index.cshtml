@@ -1,0 +1,41 @@
+﻿@page
+
+@model IndexModel
+@{
+    ViewData["Title"] = "";
+}
+<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+<section id="hero">
+    <div class="container">
+        <div class="row g-3 mt-1">
+            <div class="col-md-6 col-lg-7 ">
+                <h1><b>どこでも誰とでもビデオ通話できる</b></h1>
+                <h3>どこかにいても、友だち、家族、同僚と連絡を取り合い、コラボレーションできる。</h3>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 d-flex justify-content-center justify-content-md-between mt-2"><a class="btn btn-primary btn-lg" >ログイン</a></div>
+                    <div class="col col-md-6 d-flex justify-content-center justify-content-md-between mt-2">
+                        <div class="dropdown btn btn-lg btn-outline-primary dropdown-toggle dropdown-toggle-split meet-create" data-bs-toggle="dropdown" type="button">
+                            <span class="d-lg-inline w-auto">ミーティングを作成</span>
+                            <ul class="dropdown-menu w-100">
+                                <li class="dropdown-item btn btn-lg"><a>会話のミーティング</a></li>
+                                <li class="dropdown-item btn btn-lg "><a>仕事のミーティング</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3 d-none d-lg-block">
+                    <span class="col-lg-5 meet-join-text">すぐにミーティングに参加</span>
+                    <a class="col mt-1" id="meetingBefore" >コードを入力</a>
+                    <div class="col position-relative px-0 mt-1" id="meetingAfter" style="display: none;">
+                        <input type="text" class="form-control position-absolute " placeholder="コードを入力" aria-label="コード" id="inputCode" oninput="CheckCodeJoin()">
+                        <button class="btn btn-outline-primary position-absolute end-0 meet-join-btn" type="button" disabled id="joinBtn">参加</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-5 order-2">
+                <img class="img-fluid" src="~/img/hero.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>

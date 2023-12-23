@@ -1,0 +1,49 @@
+﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+.navbar {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12), inset 0 -1px 0 0 #dadce0;
+}
+
+.meet-create {
+    border-color: rgba(0, 0, 0, 0.22);
+}
+
+.meet-join-text {
+    text-decoration: none;
+    color: black;
+}
+
+.meet-join-text:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.meet-join-btn {
+    border: none;
+}
+
+.meet-join-btn:disabled {
+    color: black !important;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

@@ -1,0 +1,71 @@
+﻿@* Author : VietAnh 23/12/2023
+Function : Layout for guest *@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]会話が楽しい</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ggmeet.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid" role="navigation">
+            <a class="navbar-brand" href="">
+                <img src="~/img/logo.png" alt="">
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="#" class="nav-item nav-link active">解決法</a>
+                    <a href="#" class="nav-item nav-link active">商品</a>
+                    <a href="#" class="nav-item nav-link active">セクター</a>
+                    <a href="#" class="nav-item nav-link active">価格</a>
+                    <a href="#" class="nav-item nav-link active">私たち</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-item">
+                        <div class="dropdown mx-2 d-none d-lg-block">
+                            <a class="btn btn-outline-primary meet-create dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="d-lg-inline">ミーティングを作成</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><span class="dropdown-item">会話のミーティング</span></li>
+                                <li><span class="dropdown-item">仕事のミーティング</span></li>
+                            </ul>
+                        </div>
+                    </a>
+
+                    <a class="nav-item btn btn-primary" style="color:white;" type="button" href="/login">ログイン</a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </nav>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - VietAnh - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
