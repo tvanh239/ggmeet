@@ -8,7 +8,6 @@
 //*****************************************************************************
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 namespace ggmeet.Models
 {
     /// <summary>
@@ -58,9 +57,12 @@ namespace ggmeet.Models
         /// false : This account is working, true : This account is deleted
         public bool IsDelete { get; set; }
 
-
-        /// false : The created date of the account
+        /// <summary>The status of user</summary> 
+        ///   The created date of the account
         public DateTime? CreateDate { get; set; }
+
+        /// <summary>The salt password of user</summary> 
+        public string? SaltPassword { get; set; }
         #endregion
 
         #region Functions

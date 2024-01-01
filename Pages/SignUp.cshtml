@@ -36,6 +36,7 @@
 					<div class="form-floating mb-3">
 						<input asp-for="User.Email" class="form-control" type="email id="email" placeholder="name@example.com" />
 						<label asp-for="User.Email" class="control-label" for="email">メールアドレス</label>
+						<span asp-validation-for="User.Email" class="text-danger"></span>
 					</div>
 					<div class="form-floating mb-3">
 						<input asp-for="User.Password" class="form-control" 　type="password" id="passwordSignUp" placeholder="Password" />
@@ -52,7 +53,7 @@
 							<a href="#">利用規約</a>を同意する
 						</label>
 					</div>
-					<button type="submit" class="btn btn-primary submit_btn w-100 my-4" id="btnLogin">サイイン</button>
+					<button type="submit" class="btn btn-primary submit_btn w-100 my-4" id="btnLogin">登録</button>
 				</form>
 			</div>
 		</div>
