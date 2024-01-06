@@ -1,8 +1,7 @@
-using ggmeet;
-using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using ggmeet.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ggmeetContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ggmeetContext") ?? throw new InvalidOperationException("Connection string 'ggmeetContext' not found.")));
+
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ggmeetContext>();
+
+
 
 var app = builder.Build();
 

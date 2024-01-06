@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using ggmeet.Models;
-using  ggmeet.Helper;
+using ggmeet.Helper;
+using ggmeet.Data;
 namespace ggmeet.Pages
 {
     public class SignUpModel : PageModel
     {
-		private readonly ggmeet.Data.ggmeetContext _context;
+		private readonly ggmeetContext _context;
 
-		public SignUpModel(ggmeet.Data.ggmeetContext context)
+		public SignUpModel(ggmeetContext context)
 		{
 			_context = context;
 		}
@@ -32,7 +32,7 @@ namespace ggmeet.Pages
 				return Page();
 			}
 
-			_context.User.Add(User);
+			
 			await _context.SaveChangesAsync();
 
 			return RedirectToPage("./Index");
