@@ -1,80 +1,75 @@
 ﻿@page
+@using ggmeet.Areas.Identity.Pages.Account
 @model LoginModel
-
+@{
+    Layout = "_Layout2";
+}
 @{
     ViewData["Title"] = "Log in";
 }
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <h2>Use a local account to log in.</h2>
-                <hr />
-                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                    <label asp-for="Input.Email" class="form-label">Email</label>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
-                    <label asp-for="Input.Password" class="form-label">Password</label>
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="checkbox mb-3">
-                    <label asp-for="Input.RememberMe" class="form-label">
-                        <input class="form-check-input" asp-for="Input.RememberMe" />
-                        @Html.DisplayNameFor(m => m.Input.RememberMe)
-                    </label>
-                </div>
-                <div>
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
-                </div>
-                <div>
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                    <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p>
-                </div>
-            </form>
-        </section>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use another service to log in.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                            about setting up this ASP.NET application to support logging in via external services</a>.
-                        </p>
+
+<div>
+    <div class=" d-flex justify-content-around align-items-center">
+        <div class="w-75">
+            <section class="text-center p-5">
+                <img src="~/img/logo.png" alt="">
+            </section>
+            <div class="loginContainer shadow-sm text-center px-5 py-3 w-50">
+                <p class="fw-bold">Login</p>
+                <form method="post">
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Email" class="form-control" type="email id="email" placeholder="name@example.com" />
+                        <label asp-for="Input.Email" class="control-label" for="email">Email Address</label>
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
                     </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins!)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Password" class="form-control" 　type="password" id="password" placeholder="Password" />
+                        <label asp-for="Input.Password" class="control-label" for="password">Password</label>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="checkbox mb-3">
+                        <label asp-for="Input.RememberMe" class="form-label">
+                            <input class="form-check-input" asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit_btn w-100 my-4" id="btnLogin">Login</button>
+                </form>
+                <p>または</p>
+                <div class="">
+                    <button class="border bg-white w-100 d-flex justify-content-between align-items-center p-2 my-3 shadow-sm fw-bold">
+                        <img src="~/img/icons/google-logo.svg"
+                             alt="google-logo" height="18px">
+                        <a class="text-decoration-none text-dark w-100" href="#">Continue with Google</a>
+                    </button>
+                    <button class="border bg-white w-100 d-flex justify-content-between align-items-center p-2 my-3 shadow-sm fw-bold">
+                        <img src="~/img/icons/microsoft-logo.svg"
+                             alt="Microsoft-logo" height="18px">
+                        <a class="text-decoration-none text-dark w-100" href="#">Continue with Microsoft</a>
+                    </button>
+                    <button class="border bg-white w-100 d-flex justify-content-between align-items-center p-2 my-3 shadow-sm fw-bold">
+                        <img src="~/img/icons/apple-logo.svg"
+                             alt="Apple-logo" height="18px">
+                        <a class="text-decoration-none text-dark w-100" href="#">Continue with Apple</a>
+                    </button>
+                    <button class="border bg-white w-100 d-flex justify-content-between align-items-center p-2 my-3 shadow-sm fw-bold">
+                        <img src="~/img/icons/slack-logo.svg"
+                             alt="Apple-logo" height="18px">
+                        <a class="text-decoration-none text-dark w-100" href="#">Continue with Slack</a>
+                    </button>
+                </div>
+                <hr class="m-0 mt-5">
+                <div class="pt-3 align-top">
+                    <a href="#" class="text-decoration-none">Cann't login?</a>
+                    <div class="p-1 d-inline align-middle">.</div>
+                    <a asp-area="Identity" asp-page="/Account/Register">Register</a>
+                </div>
+            </div>
+            <footer>
+                <p class="text-center pt-3"><a href="#" class="text-decoration-none">Privacy policy</a> . <a href="#" class="text-decoration-none">Terms of service</a></p>
+            </footer>
+        </div>
     </div>
 </div>
 

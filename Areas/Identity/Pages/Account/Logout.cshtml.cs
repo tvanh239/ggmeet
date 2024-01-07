@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using ggmeet.Data;
 
-namespace WebApplication1.Areas.Identity.Pages.Account
+namespace ggmeet.Areas.Identity.Pages.Account
 {
     public class LogoutModel : PageModel
     {

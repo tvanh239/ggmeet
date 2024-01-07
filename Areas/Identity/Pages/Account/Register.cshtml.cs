@@ -98,7 +98,23 @@ namespace ggmeet.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
-        }
+
+			/// <summary>Birthdate of user</summary>
+			[DataType(DataType.Date)]
+			[Required(ErrorMessage = "必要")]
+			[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+			public DateTime? BirthDate { get; set; }
+
+			/// <summary>The phone of user</summary>
+			[Required(ErrorMessage = "必要")]
+			[RegularExpression(@"^\d{10,}$", ErrorMessage = "10桁以上入力してください")]
+			[StringLength(15, MinimumLength = 10, ErrorMessage = "10 ～ 15 桁")]
+			public required string Phone { get; set; }
+
+			[StringLength(60, MinimumLength = 1)]
+			[Required(ErrorMessage = "必要")]
+			public string Name { get; set; }
+		}
 
 
         public async Task OnGetAsync(string returnUrl = null)
