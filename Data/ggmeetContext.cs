@@ -19,6 +19,7 @@ namespace ggmeet.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+		private DbSet<User> User { get; set; }
 
-    }
+	}
 }

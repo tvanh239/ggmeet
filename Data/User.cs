@@ -24,13 +24,6 @@ namespace ggmeet.Data
         public string? Name { get; set; }
 
 
-
-        /// <summary>The password of user</summary>
-        [Required(ErrorMessage = "必要")]
-        [StringLength(int.MaxValue, MinimumLength = 4, ErrorMessage = "4桁以上入力してください")]
-        public required string Password { get; set; }
-
-
         /// <summary>The phone of user</summary>
         [Required(ErrorMessage = "必要")]
         [RegularExpression(@"^\d{10,}$", ErrorMessage = "10桁以上入力してください")]

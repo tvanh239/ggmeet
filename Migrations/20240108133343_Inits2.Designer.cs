@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ggmeet.Data;
 
@@ -11,9 +12,11 @@ using ggmeet.Data;
 namespace ggmeet.Migrations
 {
     [DbContext(typeof(ggmeetContext))]
-    partial class ggmeetContextModelSnapshot : ModelSnapshot
+    [Migration("20240108133343_Inits2")]
+    partial class Inits2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,6 +67,11 @@ namespace ggmeet.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(2147483647)
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PasswordHash")
